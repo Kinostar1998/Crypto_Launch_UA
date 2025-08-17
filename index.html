@@ -1,12 +1,73 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://t.me/crypto_launch_ua" />
-  <title>Redirecting...</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crypto Launch UA — перехід у Telegram</title>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:#0b0f14;color:#e6edf3;display:flex;min-height:100vh;align-items:center;justify-content:center}
+    .card{max-width:720px;width:92vw;background:#0f1520;border:1px solid #223042;border-radius:20px;padding:28px 24px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    h1{margin:0 0 6px;font-size:26px}
+    p{margin:8px 0 0;line-height:1.6}
+    .btn{display:block;text-align:center;margin:12px 0;padding:14px 18px;border-radius:12px;font-weight:700;text-decoration:none}
+    .primary{background:#22c55e;color:#08120a}
+    .ghost{border:1px solid #2b3a4d;color:#cfe0f5}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .muted{color:#9fb0c3;font-size:14px}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0b0f14;border:1px solid #263041;padding:6px 8px;border-radius:8px}
+    .tip{background:#17202b;border:1px dashed #2b3a4d;padding:10px;border-radius:12px;margin-top:10px}
+    .hidden{display:none}
+  </style>
 </head>
 <body>
-  <p>If you are not redirected automatically, follow this <a href="https://t.me/crypto_launch_ua">link to Telegram</a>.</p>
+  <main class="card">
+    <h1>Crypto Launch UA 🚀</h1>
+    <p>Крипто-інсайди, промо, airdrop, IDO. Обери зручний спосіб перейти в наш канал:</p>
+
+    <!-- 1) Звичайне t.me (для зовнішніх браузерів) -->
+    <a class="btn primary" href="https://t.me/crypto_launch_ua" target="_blank" rel="noopener">👉 Відкрити Telegram-канал</a>
+
+    <!-- 2) Глибоке посилання в застосунок -->
+    <div class="row">
+      <a class="btn ghost" href="tg://resolve?domain=crypto_launch_ua">Відкрити в застосунку (tg://)</a>
+      <a class="btn ghost" href="https://web.telegram.org/k/#@crypto_launch_ua" target="_blank" rel="noopener">Відкрити у веб-версії</a>
+    </div>
+
+    <!-- 3) Копіювання ніку -->
+    <div class="row">
+      <button id="copy" class="btn ghost" type="button">Скопіювати нік: @crypto_launch_ua</button>
+    </div>
+
+    <!-- Підказка саме для TikTok WebView -->
+    <div id="tt-tip" class="tip hidden">
+      <p class="muted"><b>Не відкривається в TikTok?</b> Зроби так:</p>
+      <p class="muted">1) Натисни <b>⋮</b> у правому верхньому куті → <b>Відкрити в браузері</b> (Safari / Chrome).<br>
+      2) Повернись на цю сторінку і натисни зелену кнопку ще раз.<br>
+      3) Або скористайся кнопкою <b>“Відкрити у веб-версії”</b> чи <b>“Скопіювати нік”</b>.</p>
+    </div>
+
+    <p class="muted" style="margin-top:12px">Знайти вручну: <span class="mono">@crypto_launch_ua</span> або <span class="mono">t.me/crypto_launch_ua</span></p>
+  </main>
+
+  <script>
+    // Показати інструкцію, якщо відкрито всередині TikTok
+    (function(){
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.includes('tiktok')) {
+        document.getElementById('tt-tip').classList.remove('hidden');
+      }
+    })();
+
+    // Кнопка "Скопіювати нік"
+    document.getElementById('copy').addEventListener('click', async function(){
+      try {
+        await navigator.clipboard.writeText('@crypto_launch_ua');
+        this.textContent = 'Скопійовано ✅';
+        setTimeout(()=>this.textContent='Скопіювати нік: @crypto_launch_ua', 1800);
+      } catch(e) {
+        alert('Скопіюйте вручну: @crypto_launch_ua');
+      }
+    });
+  </script>
 </body>
 </html>
